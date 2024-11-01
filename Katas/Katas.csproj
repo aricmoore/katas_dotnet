@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\FibonacciResult.cs" />
-    <Compile Include="InterviewQuestions\Fibonacci.cs" />
-    <Compile Include="InterviewQuestions\FizzBuzz.cs" />
+    <Compile Include="InterviewQuestions\FibonacciEven.cs" />
+    <Compile Include="InterviewQuestions\FizzBuzzSingleInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

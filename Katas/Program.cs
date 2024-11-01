@@ -16,39 +16,38 @@ namespace Katas
                 Console.WriteLine("2 - Classic FizzBuzz");
 
                 var selection = Console.ReadLine();
+                int method;
+                bool isValidMethod = false;
 
                 switch (selection)
                 {
                     case "1":
                         int upperLimit;
-                        while (true)
-                        {
-                            Console.WriteLine("Please enter an int for upper limit:");
-                            string upperLimitInput = Console.ReadLine();
 
-                            if (int.TryParse(upperLimitInput, out upperLimit))
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid input. Please enter a valid integer.");
-                            }
-                        }
-
-                        int method;
-                        bool isValidMethod = false;
                         while (!isValidMethod)
                         {
-                            Console.WriteLine("Please select the Fibonacci method you'd like to solve:");
+                            FibonacciEven.DisplayEvenFibonacciMenu();
                             string methodInput = Console.ReadLine();
 
                             if (int.TryParse(methodInput, out method))
                             {
-                                // Call the EvenFibonacciNumbersSolution method
+                                while (true)
+                                {
+                                    Console.WriteLine("Please enter an int for upper limit:");
+                                    string upperLimitInput = Console.ReadLine();
+
+                                    if (int.TryParse(upperLimitInput, out upperLimit))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input. Please enter a valid integer.");
+                                    }
+                                }
                                 try
                                 {
-                                    var result = Fibonacci.EvenFibonacciNumbersSolution(upperLimit, method);
+                                    var result = FibonacciEven.EvenFibonacciNumbersSolution(upperLimit, method);
                                     isValidMethod = true; // Mark as valid if no exception is thrown
 
                                     if (result.IsList)
@@ -76,8 +75,47 @@ namespace Katas
                         }
                         break;
                     case "2":
-                        Console.WriteLine("");
-                        FizzBuzz.FizzBuzzSolution();
+                        int fizzBuzzInput;
+
+                        while (true)
+                        {
+                            FizzBuzzSingleInput.DisplayFizzBuzzMenu();
+                            string methodInput = Console.ReadLine();
+
+                            if (int.TryParse(methodInput, out method))
+                            {
+                                try
+                                {
+                                    isValidMethod = true;
+                                    break;
+                                }
+                                catch (ArgumentException ex)
+                                {
+                                    Console.WriteLine($"Error: {ex}");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input. Please enter a valid integer.");
+                            }
+                        }
+
+                        while (true)
+                        {
+                            Console.WriteLine("Please enter a value you'd like to be FizzBuzzed:");
+                            string input = Console.ReadLine();
+
+                            if (int.TryParse(input, out fizzBuzzInput))
+                            {
+                                string result = FizzBuzzSingleInput.FizzBuzzSingleInputSolution(fizzBuzzInput, method);
+                                Console.WriteLine($"The result is in: {result}");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input. Please enter a valid integer.");
+                            }
+                        }
                         break;
                     default:
                         Console.WriteLine("Error: Invalid Choice");
