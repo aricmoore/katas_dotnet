@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Katas.InterviewQuestions
 {
-    public class Fibonacci
+    public class FibonacciEven
     {
         public static FibonacciResult EvenFibonacciNumbersSolution(int upperLimit, int method)
         {
@@ -15,28 +15,33 @@ namespace Katas.InterviewQuestions
             switch (method)
             {
                 case 1:
-                    Console.WriteLine("(Fibonacci Sum - Iterative Approach)");
                     result.Sum = CalculateFibSumIterative(upperLimit);
                     return result;
                 case 2:
-                    Console.WriteLine("(Fibonacci Sum - Recursive Approach)");
                     result.Sum = CalculateFibSumRecursive(upperLimit);
                     return result;
                 case 3:
-                    Console.WriteLine("(Fibonacci Sum - Optimised Iterative Approach)");
                     result.Sum = CalculateFibSumOptimised(upperLimit);
                     return result;
                 case 4:
-                    Console.WriteLine("(Fibonacci List - Iterative Approach)");
                     result.FibonacciList = CalculateFibListIterative(upperLimit);
                     return result;
                 case 5:
-                    Console.WriteLine("(Fibonacci List - Recursive Approach)");
                     result.FibonacciList = CalculateFibListRecursive(upperLimit);
                     return result;
                 default:
                     throw new ArgumentException("Invalid method specified.");
             }
+        }
+
+        public static void DisplayEvenFibonacciMenu()
+        {
+            Console.WriteLine("Select a Fibonacci (Even Numbers) method:");
+            Console.WriteLine("1. Fibonacci Sum - Iterative Approach");
+            Console.WriteLine("2. Fibonacci Sum - Recursive Approach");
+            Console.WriteLine("3. Fibonacci Sum - Optimised Iterative Approach");
+            Console.WriteLine("4. Fibonacci List - Iterative Approach");
+            Console.WriteLine("5. Fibonacci List - Recursive Approach");
         }
 
         #region Sum
